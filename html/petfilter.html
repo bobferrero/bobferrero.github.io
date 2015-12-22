@@ -1,0 +1,32 @@
+  <div class="panel">
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="{{name}}menu" data-toggle="dropdown" 
+              aria-haspopup="true" aria-expanded="true">
+        By {{displayName}}
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="{{name}}menu">
+        <span data-ng-model="facets.value" 
+              data-ng-click="clearSelections(facets.value);">clear all selections &times;</span>
+        <!-- dont use filter: option of ngrepeat because the menu doesnt update when toggled,
+              use ng-show instead because it's dynamic -->
+        <li class="btn-group" data-ng-repeat="opt in facets.value | orderBy:orderby track by $index">
+          <button type="button" class="btn btn-link btn-xs" data-ng-model="opt"
+                    data-ng-show="opt.selected" data-ng-click="opt.selected = null;">
+            {{opt.name}} <span aria-hidden="true">&times;</span>
+          </button>
+        </li>
+        <li role="separator" class="divider"></li>
+        <li data-ng-repeat="opt in facets.value | orderBy:orderby track by $index">
+           <div class="col-lg-11 col-lg-offset-1">
+               <input id="{{name}}filter{{opt}}" type="checkbox" value="" aria-label="{{name}} filter"
+                      data-ng-true-value="true"
+                      data-ng-false-value="false"
+                      data-ng-model="opt.selected">
+                    <label class="facetLabel" for="{{name}}filter{{opt}}">
+                          <span> {{opt.name}} </span><span class="badge">{{opt.count}}</span></label>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
