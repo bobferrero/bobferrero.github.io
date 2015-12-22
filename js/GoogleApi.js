@@ -25,7 +25,7 @@ angular.module('GoogleApi', [])
     var params = { address: location };
     var config = { headers: { 'Content-Type': undefined }, params: params };
     var errorfn = error || function (a, b, c, d) { throw new Error(a + ' ' + b + ' ' + c + ' ' + d) };
-    $http.get('http://dev.bobferrero.com:8080/rhc/api/v1/gl/geocode/json', config).then(success, errorfn);
+    $http.get('http://rhc-bfhike.rhcloud.com/api/v1/gl/geocode/json', config).then(success, errorfn);
 
   };
 
@@ -35,7 +35,7 @@ angular.module('GoogleApi', [])
     var params = { latlng: center.lat+','+center.lng };
     var config = { headers: { 'Content-Type': undefined }, params: params };
     var errorfn = error || function (a, b, c, d) { throw new Error(a + ' ' + b + ' ' + c + ' ' + d) };
-    $http.get('http://dev.bobferrero.com:8080/rhc/api/v1/gl/geocode/json', config).then(success, errorfn);
+    $http.get('http://rhc-bfhike.rhcloud.com/api/v1/gl/geocode/json', config).then(success, errorfn);
 
   };
 
