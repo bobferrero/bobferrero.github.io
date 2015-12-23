@@ -47,7 +47,21 @@ function ($scope, $window, $route, $routeParams, $location, petmodel) {
        return delay.promise;
        } */
      }
-   });
+   })
+   .when('/android/:category?', {
+     templateUrl: function (routeParams) {
+       return 'html/android-' + routeParams.category + '.html';
+     },
+     resolve: {
+       // from example code: 1 second delay
+       /*
+       delay: function ($q, $timeout) {
+       var delay = $q.defer();
+       $timeout(delay.resolve, 1000);
+       return delay.promise;
+       } */
+     }
+   }).otherwise('/');
 
    // this is hacky but it allows page to reload
    // must use #!/ in the URLs of any anchor tag that causes navigation
