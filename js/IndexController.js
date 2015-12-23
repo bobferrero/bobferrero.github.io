@@ -50,7 +50,22 @@ function ($scope, $window, $route, $routeParams, $location, petmodel) {
    })
    .when('/android/:category?', {
      templateUrl: function (routeParams) {
-       return 'html/android-' + routeParams.category + '.html';
+       //return 'html/android-' + routeParams.category + '.html';
+       return 'html/terms-and-privacy.html'
+     },
+     resolve: {
+       // from example code: 1 second delay
+       /*
+       delay: function ($q, $timeout) {
+       var delay = $q.defer();
+       $timeout(delay.resolve, 1000);
+       return delay.promise;
+       } */
+     }
+   })
+   .when('/terms?', {
+     templateUrl: function (routeParams) {
+       return 'html/terms-and-privacy.html';
      },
      resolve: {
        // from example code: 1 second delay
