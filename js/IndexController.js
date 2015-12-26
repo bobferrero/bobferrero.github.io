@@ -76,6 +76,9 @@ function ($scope, $window, $route, $routeParams, $location, petmodel) {
        return delay.promise;
        } */
      }
+   })
+   .when('/', {
+     templateUrl: 'html/mobile-apps.html'
    }).otherwise('/');
 
    // this is hacky but it allows page to reload
