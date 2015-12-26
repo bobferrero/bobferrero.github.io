@@ -43,7 +43,7 @@ angular.module('GoogleApi', [])
     initMap: initMap,
     addMarker: addMarker,
     geocode: geocode,
-    reverseGeocode, reverseGeocode
+    reverseGeocode: reverseGeocode
   };
 
 } ]);

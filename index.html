@@ -4,11 +4,12 @@
     <title>Bob Ferrero</title> 
     <meta charset="utf-8"> 
     <meta name="author" content="Bob Ferrero" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
     <meta name="description" content="adoptable pets, pet searches, find a pet, petfinder, bobferrero.com, GitHub Pages, Angular, JQuery, Bootstrap" />
 	  <meta name="keywords" content="adoptable pets, pet searches, find a pet, petfinder, bobferrero.com, GitHub Pages, Angular, JQuery, Bootstrap" />    
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
           
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-csp.css">
@@ -16,10 +17,10 @@
     <link rel="shortcut icon" href="favicon.ico" />
     <base href="/">
   </head> 
-  <body data-ng-controller="Index" role="document">
+  <body data-ng-controller="Index">
       
   <header>
-    <nav class="navbar navbar-inverse" role="navigation">
+    <nav class="navbar navbar-inverse">
 		  <div class="container-fluid">
 			  <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" 
@@ -34,10 +35,10 @@
 			      <li><a href="./" aria-controls="home" id="home">Home</a></li>
 
 				    <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" role="button" href="pets/{{animal}}"
+              <a class="dropdown-toggle" data-toggle="dropdown" role="button" data-ng-href="pets/{{animal}}"
                   id="petmenu" aria-haspopup="true" aria-expanded="false">Adoptable Pets<span class="caret"></span>
               </a>
-              <ul class="dropdown-menu" aria-labelledby="petDropdown">
+              <ul class="dropdown-menu" aria-labelledby="petmenu">
                 <li><a data-ng-href="pets/shelters" id="shelterfindMenu">Shelters</a></li>
                 <li role="separator" class="divider"></li>
                 <li data-ng-repeat="opt in petmenu track by opt.value">
@@ -69,17 +70,12 @@
   </div>
       
   <footer class="footer">
-    <div class="container-fluid">
-      <p class="panel">
-        <ul class="label">
+    <div class="container-fluid" >
+        <ul class="label container-fluid">
 		      <li class="label">
-            <a href="./" id="footerDate">Bob Ferrero Merry Christmas, Happy New Year</a>
+            <a href="./">Bob Ferrero Merry Christmas, Happy New Year</a>
           </li>
-		      <li class="label" style="margin-left: 1%">
-            <a href="./terms" id="footerDate" style="text-align: center">terms and conditions
-              <span class="glyphicon glyphicon-book"> </span> privacy policy</a>
-          </li>
-		      <li class="pull-right">
+		      <li class="label pull-right">
             <a href="http://github.com/bfhike" id="footerGithub">
               <img src="images/GitHub-Mark-32px.png" alt="GitHub Pages" title="GitHub Pages"
                     height="24" width="24"/></a>
@@ -88,14 +84,18 @@
                     height="24" width="24"/></a>
             <a href="http://github.com/jquery" id="footerJQuery">
                 <img src="images/jquery-logo.png" alt="JQuery" title="JQuery" 
-                    height="16" width="16"/></a>
+                    height="24" width="24"/></a>
             <a href="http://github.com//twbs/bootstrap" id="footerBootstrap">
                 <img src="images/bootstrap-solid.svg" alt="Bootstrap" title="Bootstrap" 
-                  height="16" width="16"/></a>
+                  height="24" width="24"/></a>
+          </li>
+		      <li class="label pull-right" >
+            <a href="./terms" alt="Terms & Conditions, Privacy Policy">
+              <span class="glyphicon glyphicon-book footer-glyphicon" 
+                    title="Terms & Conditions, Privacy Policy"> </span></a>            
           </li>
 	      </ul>
-        </p>
-      </div>
+    </div>
   </footer>  
         
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 

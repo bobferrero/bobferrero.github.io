@@ -7,6 +7,9 @@ pre.description {
   font-family: inherit !important;
 }
 
+.footer-glyphicon {
+  font-size: x-large;
+}
 
 .petimage {
   width: 100%;
