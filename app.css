@@ -11,6 +11,10 @@ pre.description {
   font-size: x-large;
 }
 
+.google-play-badge {
+  max-width: 80%;
+}
+
 .petimage {
   width: 100%;
 }
