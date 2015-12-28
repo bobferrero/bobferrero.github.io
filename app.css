@@ -11,6 +11,11 @@ pre.description {
   font-size: x-large;
 }
 
+.app-text-medium {
+  font-size: medium;
+  font-weight: 600;
+}
+
 .google-play-badge {
   max-width: 80%;
 }
