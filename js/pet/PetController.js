@@ -58,7 +58,7 @@ petfinder, petmodel, petfacet, googleApi) {
     var callback = function (data) {
       if (!data || !data.petfinder || !data.petfinder.pets || !data.petfinder.pets.pet) {
         try {
-          $scope.message = data.petfinder.header.status.message.$t;
+          $scope.message = "request failed: " + data.petfinder.header.status.message.$t;
         } catch (e) {
           $scope.message = "No pets found in that area";
         }
