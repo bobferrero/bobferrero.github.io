@@ -77,9 +77,9 @@ petfinder, petmodel, petfacet, googleApi) {
     petfinder.findPets({ 'location': $scope.location, 'animal': $scope.animal }, callback);
   };
 
-
   /*   initialization    */
   $scope.find();
+  $('#navbar').removeClass('in');
 
 } ])
 
@@ -107,7 +107,7 @@ function ($scope, $filter, $document, $timeout, $route, $routeParams, $location,
   // default orderby function that can be overridden by facet controllers
   $scope.checkFilters = petfacet.checkFilters;
 
-  /*    initialization    */
+  /*    initialization  called by layout html files in first data-repeat  */
   $scope.init = function (pet) {
     petfacet.buildFacets(pet);
     $scope.petImages = new ImageArray();
