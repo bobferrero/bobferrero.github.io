@@ -1,4 +1,8 @@
-.navbar-inverse {
+.navbar-inverse, 
+.navbar-inverse .navbar-toggle, 
+.navbar-inverse .navbar-collapse, 
+.navbar-inverse .navbar-form
+ {
   background-color: #303f9f;
   color:  #bfbfbf;
   border-color: #3F51B5;
@@ -8,9 +12,25 @@
   color:  #303f9f;
 }
 
-.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
+.navbar-inverse .navbar-nav>.open>a, 
+.navbar-inverse .navbar-nav>.open>a:focus, 
+.navbar-inverse .navbar-nav>.open>a:hover,
+.navbar-inverse .navbar-toggle:focus, 
+.navbar-inverse .navbar-toggle:hover
+{
   background-color: #3F51B5;
   border-color: #303f9f;
+}
+
+@media (max-width: 767px) {
+  .navbar-inverse .navbar-nav .open .dropdown-menu .divider {
+    background-color: #3F51B5;
+    border-color: #303f9f;
+  }  
+}
+
+.navbar-inverse .navbar-toggle .icon-bar {
+  background-color: #bfbfbf;
 }
 
 .zipcode.ng-invalid.ng-dirty {
@@ -64,10 +84,6 @@ pre.description {
 
 .shelters .layout-thumb {
   display: none !important;
-}
-
-.collapsed-menu-icon {
-  color:  #9d9d9d;
 }
 
 /* sticky footer css http://getbootstrap.com/examples/sticky-footer-navbar */
