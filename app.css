@@ -1,7 +1,10 @@
 .navbar-inverse, 
+.navbar-inverse .navbar-brand, 
 .navbar-inverse .navbar-toggle, 
 .navbar-inverse .navbar-collapse, 
-.navbar-inverse .navbar-form
+.navbar-inverse .navbar-form,
+.navbar-inverse .navbar-brand > li > a,
+.navbar-inverse .navbar-nav > li> a
  {
   background-color: #303f9f;
   color:  #bfbfbf;
@@ -15,10 +18,19 @@
 .navbar-inverse .navbar-nav>.open>a, 
 .navbar-inverse .navbar-nav>.open>a:focus, 
 .navbar-inverse .navbar-nav>.open>a:hover,
+.navbar-inverse .navbar-brand:focus, 
+.navbar-inverse .navbar-brand:hover,
 .navbar-inverse .navbar-toggle:focus, 
-.navbar-inverse .navbar-toggle:hover
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-collapse:focus, 
+.navbar-inverse .navbar-collapsee:hover,
+.navbar-inverse .navbar-nav:focus, 
+.navbar-inverse .navbar-nav:hover,
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus
 {
   background-color: #3F51B5;
+  color: #bfbfbf;
   border-color: #303f9f;
 }
 
