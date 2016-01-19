@@ -5,8 +5,8 @@ Index is the header and navigation portion of the application
 angular.module('IndexController', ['ngRoute', 'PetModel'])
 
 .controller('Index',
-['$scope', '$window', '$route', '$routeParams', '$location', 'petmodel',
-function ($scope, $window, $route, $routeParams, $location, petmodel) {
+['$scope', '$window', '$route', '$routeParams', '$location', '$anchorScroll', 'petmodel',
+function ($scope, $window, $route, $routeParams, $location, $anchorScroll, petmodel) {
 
   $scope.$route = $route;
   $scope.$location = $location;
@@ -17,6 +17,11 @@ function ($scope, $window, $route, $routeParams, $location, petmodel) {
   $scope.initTooltips = function () {
     $('[data-toggle="tooltip"]').tooltip();
   };
+
+  $scope.scrollTo = function (anchor) {
+    $location.hash(anchor);
+    $anchorScroll();
+  }
 
 } ])
 
