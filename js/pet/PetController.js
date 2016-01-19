@@ -1,9 +1,9 @@
 angular.module('PetController', ['ngRoute', 'ngCookies', 'PetFinder', 'ImageArray', 'PetModel', 'GoogleApi', 'PetFacet'])
 
 .controller('PetSearchController',
-['$scope', '$route', '$routeParams', '$location', '$cookies', '$timeout', '$window',
+['$scope', '$route', '$routeParams', '$location', '$cookies', '$timeout', '$window', '$anchorScroll',
 'petfinder', 'petmodel', 'petfacet', 'googleApi',
-function ($scope, $route, $routeParams, $location, $cookies, $timeout, $window,
+function ($scope, $route, $routeParams, $location, $cookies, $timeout, $window, $anchorScroll,
 petfinder, petmodel, petfacet, googleApi) {
 
   /*     pet search    */
@@ -51,6 +51,11 @@ petfinder, petmodel, petfacet, googleApi) {
   $scope.showspinner = false;
   $scope.layout = petmodel.layout;
 
+  var scrollToSearchResults = function() {
+    $location.hash('searchResults');
+    $anchorScroll();
+  }
+
   $scope.find = function () {
     if (!$scope.location || $scope.location.length < 5 || !$scope.animal || $scope.animal.length == 0) return;
 
@@ -67,6 +72,7 @@ petfinder, petmodel, petfacet, googleApi) {
         $scope.message = undefined;
         petfacet.initialize();
         petmodel.pets.value = data.petfinder.pets.pet;
+        scrollToSearchResults();
       }
       // use timeout because cached hits are too fast and this will wait until content is loaded
       $timeout(function () {
