@@ -1,9 +1,9 @@
 
             <!-- facets -->
             <div class="container-fluid panel" data-ng-init="showfilters=false;">
-               <span data-ng-click="showfilters=!showfilters;">Filter Results
-                 <span class="caret" ></span>
-               </span>
+              <span class="btn btn-info btn-xs" data-ng-click="showfilters=!showfilters;">Filter Results
+                 <span class="glyphicon glyphicon-filter"></span>
+              </span>
             </div>
             <div data-ng-class="{'col-sm-2 col-md-2 col-lg-2':showfilters, 'hidden':!showfilters}" 
                  data-ng-show="showfilters" data-ng-include="'html/petfilters.html'"></div>
