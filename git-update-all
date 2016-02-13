@@ -1,0 +1,11 @@
+#!/bin/sh
+cd bfhike.github.io
+git fetch bobferrero-local
+git merge bobferrero-local/master
+git push
+
+cd ../bikehike.github.io
+git fetch bobferrero-local
+git merge bobferrero-local/master
+git push
+
