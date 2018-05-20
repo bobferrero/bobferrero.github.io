@@ -3,7 +3,7 @@ angular.module('PetFinder', ['PetCache'])
 .factory('petfinder', ['$http', 'petcache',
 function ($http, petcache) {
 
-  var constants = { test: false, url: 'http://jpets.herokuapp.com/rhc/api/v1/pet/' };
+  var constants = { test: false, url: '//jpets.herokuapp.com/rhc/api/v1/pet/' };
 
   var api = {
 
