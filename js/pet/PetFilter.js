@@ -1,4 +1,4 @@
-angular.module('PetFilter', ['PetFinder'])
+angular.module('PetFilter', [])
 
 .filter('checkmark', function () {
   // adds a checkmark or X for true/false, respectively
@@ -16,6 +16,7 @@ angular.module('PetFilter', ['PetFinder'])
 
 .filter('description', function () {
   return function (description) {
+    if (!description) return description;
     var d = description["$t"];
     return d && d.length && d.length > 0 ? (d.substring(0, 500) + (d.length > 500 ? ' READ MORE...' : '')) : null;
   };
@@ -33,12 +34,9 @@ angular.module('PetFilter', ['PetFinder'])
   };
 })
 
-.filter('shelters', function (petfinder) {
+.filter('shelters', function () {
   return function (input) {
     var value = input;
-    // TODO
-    // var callback = function (data) { value = data.petfinder.sheltername; };
-    // petfinder.findShelter(input, callback.bind(this));
     return value;
   };
 

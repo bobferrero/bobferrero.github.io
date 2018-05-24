@@ -1,6 +1,7 @@
 # Logs
 logs
 *.log
+logs/*
 
 # Runtime data
 pids
@@ -28,3 +29,10 @@ node_modules
 js/libs
 
 .vscode
+
+!.gitkeep
+node_modules/
+bower_components/
+tmp
+.DS_Store
+.idea
