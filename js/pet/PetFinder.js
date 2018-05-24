@@ -23,7 +23,7 @@ function ($http, petcache) {
     },
 
     get: function (method, options, cacheKey, success) {
-      var params = $.extend({}, this.defaults, options);
+      var params = angular.extend({}, this.defaults, options);
       var successwrapper = this.cachedSuccessWrapper.bind(this, cacheKey, success);
       $http.jsonp(constants.url + method, { 'params': params }).success(successwrapper);
     },
@@ -31,7 +31,7 @@ function ($http, petcache) {
     mock: function (method, options, cacheKey, success) {
       /* use the mock for testing */
       var successwrapper = this.cachedSuccessWrapper.bind(this, cacheKey, success);
-      var mockUrl = 'js/pet/petfinder-mock-' + method + '-' + cacheKey() + '.js';
+      var mockUrl = 'testing/petfinder-mock-' + method + '-' + cacheKey() + '.js';
       $http.get(mockUrl).success(successwrapper);
     }, 
 

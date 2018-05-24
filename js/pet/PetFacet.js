@@ -129,6 +129,7 @@ angular.module('PetFacet', [])
     var id = createId(name);
     if (typeof array[id] === 'undefined') {
       array[id] = array.length;
+      // change selected to be undefined instead of null?
       array.push({ 'id': id, 'index': array.length, 'name': name, count: 0, selected: null });
     }
     var index = array[id];
