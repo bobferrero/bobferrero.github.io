@@ -9,6 +9,7 @@ module.exports = function(config) {
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/angular-cookies/angular-cookies.js',
+      'bower_components/angular-sanitize/angular-sanitize.js',
       'app.js',
       'js/**/*.js',
       'spec/**/*.js'
@@ -22,7 +23,6 @@ module.exports = function(config) {
 
     plugins: [
       'karma-chrome-launcher',
-      'karma-firefox-launcher',
       'karma-jasmine',
       'karma-junit-reporter'
     ],

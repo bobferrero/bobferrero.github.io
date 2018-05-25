@@ -1,14 +1,12 @@
-var google = {
-	maps: {
-		Map: function (element, config) {
-			this.element = element;
-			this.config = config;
-		},
-		Marker: function (config) {
-			this.config = config;
-		}
-	}
-}
+var google = { maps: { 
+	Map: function (element, config) { 
+		this.element = element;
+		this.config = config;
+	}, 
+	Marker: function (config) { 
+		this.config = config;
+	} 
+}}
 
 describe('GoogleApi', function () {
 

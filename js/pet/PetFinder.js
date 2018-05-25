@@ -9,30 +9,29 @@ function ($http, petcache) {
 
     defaults: {
       count: 100,
-      callback: 'JSON_CALLBACK',
       format: 'json',
       offset: 0
     },
 
     cachedSuccessWrapper: function (keyFunction, success, data) {
       // bound to getPets scope for location, animal, success
-      if (data) {
-        petcache.put(keyFunction(), data);
+      if (data.data) {
+        petcache.put(keyFunction(), data.data);
       }
-      success(data);
+      success(data.data);
     },
 
     get: function (method, options, cacheKey, success) {
       var params = angular.extend({}, this.defaults, options);
       var successwrapper = this.cachedSuccessWrapper.bind(this, cacheKey, success);
-      $http.jsonp(constants.url + method, { 'params': params }).success(successwrapper);
+      $http.jsonp(constants.url + method, { 'params': params }).then(successwrapper);
     },
 
     mock: function (method, options, cacheKey, success) {
       /* use the mock for testing */
       var successwrapper = this.cachedSuccessWrapper.bind(this, cacheKey, success);
       var mockUrl = 'testing/petfinder-mock-' + method + '-' + cacheKey() + '.js';
-      $http.get(mockUrl).success(successwrapper);
+      $http.get(mockUrl).then(successwrapper);
     }, 
 
     findCachedAndMocked: function (method, options, cacheKey, success) {

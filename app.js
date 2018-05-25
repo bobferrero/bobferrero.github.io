@@ -1,8 +1,15 @@
 angular.module('bfAngApp', 
 
-['ngRoute', 'ngCookies', 'IndexController', 'PetController', 'PetFacetControllers', 'PetMapController',
+['ngRoute', 'ngCookies', 'ngSanitize', 'IndexController', 'PetController', 'PetFacetControllers', 'PetMapController',
     'PetFilter', 'PetCache', 'PetFinder', 'PetModel', 'PetShelterController', 'PetFacet', 'GoogleApi'])
 
-.config(['$compileProvider', function ($compileProvider) {
+.config(['$compileProvider', '$sceDelegateProvider', function ($compileProvider, $sceDelegateProvider) {
   $compileProvider.debugInfoEnabled(true);
+
+  $sceDelegateProvider.resourceUrlWhitelist([
+    // Allow same origin resource loads.
+    'self',
+    // Allow loading from jpets
+    '**//jpets.herokuapp.com/rhc/api/v1/**'
+  ]);
 }]);

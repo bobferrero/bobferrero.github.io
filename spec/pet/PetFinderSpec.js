@@ -3,11 +3,15 @@ describe('PetFinder', function () {
 	beforeEach(module('PetFinder'));
 
 	// mock petcache
-	beforeEach(module(function ($provide) {
+	beforeEach(module(function ($provide, $sceDelegateProvider) {
 		$provide.value('petcache', {
 			get: function () { },
 			put: function () { }
 		});
+		$sceDelegateProvider.resourceUrlWhitelist([
+			// Allow loading from jpets
+			'**//jpets.herokuapp.com/rhc/api/v1/**'
+		  ]);
 	}));
 
 	it('is not defined', inject(function (petfinder) {
