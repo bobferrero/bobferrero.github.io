@@ -30,7 +30,7 @@ function ($http, petcache) {
     mock: function (method, options, cacheKey, success) {
       /* use the mock for testing */
       var successwrapper = this.cachedSuccessWrapper.bind(this, cacheKey, success);
-      var mockUrl = 'testing/petfinder-mock-' + method + '-' + cacheKey() + '.js';
+      var mockUrl = 'testing/petfinder-mock-' + method + '.json';
       $http.get(mockUrl).then(successwrapper);
     }, 
 
@@ -53,6 +53,8 @@ function ($http, petcache) {
   };
 
   return {
+
+    testing: function(bool){constants.test=bool},
 
     findPets: function (options, success) { 
       if (options.location == null || options.location.length < 5 || options.animal == null || options.animal.length < 2)
