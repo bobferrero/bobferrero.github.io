@@ -84,5 +84,7 @@ describe('PetController', function () {
       $scope.layout = 'thumb';
       expect($scope.getLayoutTemplate()).toContain("thumb");
     });
+
   });
+
 });

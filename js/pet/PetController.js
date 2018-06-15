@@ -9,9 +9,9 @@ petfinder, petmodel, petfacet, googleApi) {
   /*     pet search    */
 
   $scope.locationCookiename = 'location';
-  $scope.location = $cookies.get($scope.locationCookiename);
+  //$scope.location = $cookies.get($scope.locationCookiename);
   var updateCookie = function () {
-    $cookies.put($scope.locationCookiename, $scope.location);
+    //$cookies.put($scope.locationCookiename, $scope.location);
   };
 
   var parseGeocodingResponse = function (results) {

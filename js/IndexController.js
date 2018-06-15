@@ -5,8 +5,8 @@ Index is the header and navigation portion of the application
 angular.module('IndexController', ['ngRoute', 'PetModel'])
 
 .controller('Index',
-['$scope', '$window', '$route', '$routeParams', '$location', '$anchorScroll', 'petmodel',
-function ($scope, $window, $route, $routeParams, $location, $anchorScroll, petmodel) {
+['$scope', '$window', '$route', '$routeParams', '$location', '$anchorScroll', '$cookies', 'petmodel',
+function ($scope, $window, $route, $routeParams, $location, $anchorScroll, $cookies, petmodel) {
 
   $scope.$route = $route;
   $scope.$location = $location;
@@ -21,7 +21,16 @@ function ($scope, $window, $route, $routeParams, $location, $anchorScroll, petmo
   $scope.scrollTo = function (anchor) {
     $location.hash(anchor);
     $anchorScroll();
-  }
+  };
+
+  $scope.removeAllCookies = function() {
+    var cookies = $cookies.getAll();
+    for (var c in cookies) {
+      $cookies.remove(c);
+    }
+  };
+
+  $scope.removeAllCookies();
 
 } ])
 
