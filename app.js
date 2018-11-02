@@ -10,6 +10,8 @@ angular.module('bfAngApp',
     // Allow same origin resource loads.
     'self',
     // Allow loading from jpets
-    '**//jpets.herokuapp.com/rhc/api/v1/**'
+    '**//jpets.herokuapp.com/rhc/api/v1/**',
+    // allow google functions
+    '**//us-central1-igneous-future-108923.cloudfunctions.net/**'
   ]);
 }]);
