@@ -9,8 +9,8 @@ describe('PetFinder', function () {
 			put: function () { }
 		});
 		$sceDelegateProvider.resourceUrlWhitelist([
-			// Allow loading from jpets
-			'**//jpets.herokuapp.com/rhc/api/v1/**'
+			// allow google functions
+			'**//us-central1-igneous-future-108923.cloudfunctions.net/**'
 		  ]);
 	}));
 
@@ -19,7 +19,7 @@ describe('PetFinder', function () {
 	}));
 
 	it('findPets returns a bad result', inject(function (petfinder, $httpBackend) {
-		$httpBackend.expectJSONP("//jpets.herokuapp.com/rhc/api/v1/pet/pet.find?animal=dog&callback=JSON_CALLBACK&count=100&format=json&location=92618&offset=0").respond({ a: true });
+		$httpBackend.expectJSONP("//us-central1-igneous-future-108923.cloudfunctions.net/pets?&callback=bobf&path=pet.find&animal=dog&count=100&format=json&location=92618&offset=0").respond({ a: true });
 
 		var result = false;
 		var success = function () {
@@ -30,7 +30,7 @@ describe('PetFinder', function () {
 		expect(result).toBe(true);
 	}));
 	it('findPets returns a bad result', inject(function (petfinder, $httpBackend) {
-		$httpBackend.expectJSONP("//jpets.herokuapp.com/rhc/api/v1/pet/shelter.find?callback=JSON_CALLBACK&count=100&format=json&location=92618&offset=0").respond({ a: true });
+		$httpBackend.expectJSONP("//us-central1-igneous-future-108923.cloudfunctions.net/pets?&callback=bobf&path=shelter.find&animal=dog&count=100&format=json&location=92618&offset=0").respond({ a: true });
 
 		var result = false;
 		var success = function () {

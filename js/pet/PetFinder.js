@@ -3,14 +3,15 @@ angular.module('PetFinder', ['PetCache'])
 .factory('petfinder', ['$http', 'petcache',
 function ($http, petcache) {
 
-  var constants = { test: false, url: '//jpets.herokuapp.com/rhc/api/v1/pet/' };
+  var constants = { test: false, url: '//us-central1-igneous-future-108923.cloudfunctions.net/pets' };
 
   var api = {
 
     defaults: {
       count: 100,
       format: 'json',
-      offset: 0
+      offset: 0,
+      path:'pet.find'
     },
 
     cachedSuccessWrapper: function (keyFunction, success, data) {
@@ -23,8 +24,9 @@ function ($http, petcache) {
 
     get: function (method, options, cacheKey, success) {
       var params = angular.extend({}, this.defaults, options);
+      params.path = method;
       var successwrapper = this.cachedSuccessWrapper.bind(this, cacheKey, success);
-      $http.jsonp(constants.url + method, { 'params': params }).then(successwrapper);
+      $http.jsonp(constants.url, { 'params': params }).then(successwrapper);
     },
 
     mock: function (method, options, cacheKey, success) {
