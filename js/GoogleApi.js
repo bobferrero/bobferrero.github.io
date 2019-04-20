@@ -1,6 +1,12 @@
 angular.module('GoogleApi', [])
   .factory('googleApi', ['$http', function ($http) {
 
+    var constants = { test: false,
+            url: '//us-central1-igneous-future-108923.cloudfunctions.net/geocode',
+            params: {
+              format: 'json'
+            }
+    };
 
     var initMap = function (element, center) {
       // Create a map object and specify the DOM element for display.
@@ -22,21 +28,17 @@ angular.module('GoogleApi', [])
     var geocode = function (location, success, error) {
       if (typeof success != 'function') success(null);
 
-      var params = { address: location };
+      var params = angular.extend({}, constants.params, { address: location });
       var config = { headers: { 'Content-Type': undefined }, params: params };
-      var errorfn = error || function (response) { throw new Error(JSON.stringify(response)); };
-      $http.get('//jpets.herokuapp.com/rhc/api/v1/gl/geocode/json', config).then(success, errorfn);
-
+      $http.jsonp(constants.url, { 'params': params }).then(success);
     };
 
     var reverseGeocode = function (center, success, error) {
       if (typeof success != 'function') success(null);
 
-      var params = { latlng: center.lat + ',' + center.lng };
+      var params = angular.extend({}, constants.params, { latlng: center.lat + ',' + center.lng });
       var config = { headers: { 'Content-Type': undefined }, params: params };
-      var errorfn = error || function (response) { throw new Error(JSON.stringify(response)); };
-      $http.get('//jpets.herokuapp.com/rhc/api/v1/gl/geocode/json', config).then(success, errorfn);
-
+      $http.jsonp(constants.url, { 'params': params }).then(success);
     };
 
     return {
