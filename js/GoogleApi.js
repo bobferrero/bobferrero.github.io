@@ -2,7 +2,7 @@ angular.module('GoogleApi', [])
   .factory('googleApi', ['$http', function ($http) {
 
     var constants = { test: false,
-            url: '//us-central1-igneous-future-108923.cloudfunctions.net/google-geocode',
+            url: '//us-central1-igneous-future-108923.cloudfunctions.net/geocode',
             params: {
               format: 'json'
             }
